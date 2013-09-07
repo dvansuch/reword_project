@@ -1,5 +1,4 @@
-<
-<div class="container">
+ <div class="container">
   <div class="row">
     <div class="span12 text-center">
      <h1>Welcome to ReWord</h1>
@@ -10,21 +9,22 @@
     <div class="span4">
     </div>
     <div class="span4">
-      <h1>Log In</h1>
+      <h1>Register</h1>
 			<p>
 				<b>Username:</b><br>
 				<%== text_field_tag "username" %>
 				<br>
 				<b>Password:</b><br>
-				<%== text_field_tag "password" %>
+				<%== password_field_tag "password" %>
 				<br>
-			</p>
+				<b>Confirm Password:</b><br>
+				<%== password_field_tag "password_confirmation" %>
 			<p>
-				<%== submit_tag "Login", :class => "btn btn-primary" %>
+				<%== submit_tag "Sign Up" %>
 			</p>
     </div>
     <div class="span4">
-      <p>Don't have an account? <a href ="/register">Sign Up</a> today for free!
+    	<p>Already have an account? <a href ="/login">Login</a>!
       </p>
     </div>
   </div><!-- ends body div -->

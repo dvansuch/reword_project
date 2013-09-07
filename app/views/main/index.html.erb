@@ -1,19 +1,31 @@
-<div>
-	<h1>Welcome to ReWord</h1>
-<!-- ends header -->
+<%== form_tag "/reword" do %>
 
-
-  <div class="col-md-4">.col-md-4
-  	<p><%== text_area_tag "input" %><br>
-			<%== submit_tag "ReWord" %>	
-		</p>
-	</div><!-- ends div class -->
-  <div class="col-md-4">
-  	<p><%== text_area_tag "output" %><br>
-			<%== submit_tag "Try Again" %>
-		</p>
-  </div><!-- ends div class -->
-  <div class="col-md-4">Login screen goes here</div><!--ends div class -->
-<!-- ends body -->
-
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+     <h1 >Welcome to ReWord</h1>
+     <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
+    </div>
+  </div><!-- ends header div -->
+  <div class="row">
+    <div class="span4">
+      <p>Please enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
+      <p><a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
+      </p>
+    </div>
+    <div class="span4">
+      <div class="reword">
+        <p><%== text_area_tag "input" %><br>
+          <%== submit_tag "ReWord", :class => "btn btn-primary" %>
+        </p>
+      </div>
+    </div>
+    <div class="span4">
+      <p><%== text_area_tag "ouput" %><br>
+        <%== submit_tag "Try Again", :class => "btn btn-info" %>
+      </p>
+    </div>
+  </div><!-- ends body div -->
 </div>
+
+<% end %>
