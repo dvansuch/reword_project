@@ -39,10 +39,10 @@ gem 'dynamic_form' # for error_messages_for
 
 gem 'rake_db_dump'
 
-gem 'rails-footnotes',
-  github: "tommireinikainen/rails-footnotes",
-  ref: "2f6f38808b052ba7e1b59107acdc6144a3ec448e",
-  group: :development
+#gem 'rails-footnotes',
+# github: "tommireinikainen/rails-footnotes",
+#ref: "2f6f38808b052ba7e1b59107acdc6144a3ec448e",
+#group: :development
 
 gem 'rails_12factor' #serve production assets
 

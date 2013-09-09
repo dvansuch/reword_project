@@ -1,12 +1,11 @@
-<%== form_tag "/reword" do %>
+<%== form_tag "/index" do %>
 
-<div class="container">
-  <div class="row">
-    <div class="text-center">
-     <h1 >Welcome to ReWord</h1>
-     <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
-    </div>
-  </div><!-- ends header div -->
+<div class="row">
+  <div class="text-center">
+   <h1 >Welcome to ReWord</h1>
+   <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
+  </div>
+</div><!-- ends header div -->
   <div class="row">
     <div class="span4">
       <p>Please enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
@@ -21,11 +20,10 @@
       </div>
     </div>
     <div class="span4">
-      <p><%== text_area_tag "ouput" %><br>
+      <p><%== text_area_tag "output", @input %><br>
         <%== submit_tag "Try Again", :class => "btn btn-info" %>
       </p>
     </div>
   </div><!-- ends body div -->
-</div>
-
+  
 <% end %>

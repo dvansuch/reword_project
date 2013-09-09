@@ -1,10 +1,20 @@
 class MainController < ApplicationController
 	def root
-		redirect_to "/index" and return
+		render :main and return
 	end
 
 	def index
 		render :index and return
+	end
+
+	def index_post
+		if params[:commit] == "ReWord"
+			@input = params["input"]
+			
+			render :index and return
+		elsif params[:commit] == "Try Again"
+			render :index and return
+		end
 	end
 
 	def login
