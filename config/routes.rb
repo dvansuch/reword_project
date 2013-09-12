@@ -2,6 +2,7 @@ ReWordProject::Application.routes.draw do
   get "/"           => "main#root"
   get "/index"      => "main#index"
   post "/index"     => "main#index_post"
+  get "/about"      => "main#about"
 
   get "/login"      => "main#login"
   post "/login"     => "main#login_post"

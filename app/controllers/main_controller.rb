@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-	before_filter except: ["login", "login_post", "root", "logout", "register"] do 
+	before_filter except: ["login", "login_post", "root", "logout", "register", "about"] do 
 		if session[:scholar_id] != nil
 			@scholar = Scholar.where(id: session[:scholar_id])
 		elsif @scholar == nil
@@ -12,6 +12,10 @@ class MainController < ApplicationController
 		
 	def root
 		render :main and return
+	end
+
+	def about
+		render :about and return
 	end
 
 	def index
