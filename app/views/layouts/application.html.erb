@@ -11,10 +11,15 @@
 	  <div class="navbar-inner">
 	    <a class="brand" href="/">ReWord</a>
 	    <ul class="nav">
-	      <li><a href="/index">Home</a>
-	      <li><a href="/register">Register</a>
-	      <li><a href="/add_word">Add A Word</a>
-	      <li><a href="/login">Login</a>
+	    	<li><a href="/about">About Us</a>
+	    	<% if session[:scholar_id] != nil %>
+		      <li><a href="/index">Start ReWording</a>
+		      <li><a href="/add_word">Add A Word</a>
+		      <li><a href="/logout">Logout</a>
+		    <% elsif session[:scholar_id] == nil %>
+	      	<li><a href="/register">Register</a>
+	      	<li><a href="/login">Login</a>
+	      <% end %>
 	    </ul>
 	  </div>
 	</div>

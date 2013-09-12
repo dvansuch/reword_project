@@ -1,3 +1,4 @@
+
   <div class="row">
     <div class="span12 text-center">
      <h1>Welcome to ReWord</h1>
@@ -13,16 +14,26 @@
     <div class="span4">
       <h1>Register</h1>
   		<p>
+        <b>First and Last Name:</b><br>
+        <%= text_field_tag "name" %>
+        <br>
   			<b>Username:</b><br>
-  			<%== text_field_tag "username" %>
+  			<%= text_field_tag :username %>
   			<br>
   			<b>Password:</b><br>
-  			<%== password_field_tag "password" %>
+  			<%= password_field_tag :password %>
   			<br>
   			<b>Confirm Password:</b><br>
-  			<%== password_field_tag "password_confirmation" %>
+  			<%= password_field_tag :password_confirmation %>
+        <br>
+        <b>Email:</b><br>
+        <%= text_field_tag "email" %>
+        <br>
+        <b>Please check if you are a student:</b>
+        <%= check_box_tag :student %>
+        <br>
   		<p>
-  			<%== submit_tag "Sign Up" %>
+  			<%= submit_tag "Sign Up" %>
   		</p>
     </div>
     <div class="span4">

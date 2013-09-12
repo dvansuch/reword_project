@@ -1,3 +1,4 @@
+<%= form_tag "/login" do %>  
   <div class="row">
     <div class="span12 text-center">
      <h1>Welcome to ReWord</h1>
@@ -17,7 +18,7 @@
   			<%== text_field_tag "username" %>
   			<br>
   			<b>Password:</b><br>
-  			<%== text_field_tag "password" %>
+  			<%== password_field_tag :password %>
   			<br>
   		</p>
   		<p>
@@ -29,3 +30,4 @@
       </p>
     </div>
   </div><!-- ends body div -->
+<% end %>
