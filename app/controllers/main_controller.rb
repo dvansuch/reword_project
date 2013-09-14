@@ -1,6 +1,6 @@
 class MainController < ApplicationController
 
-	before_filter except: ["login", "login_post", "root", "logout", "register", "about"] do 
+	before_filter except: ["login", "login_post", "root", "logout", "register", "about", "register_post"] do 
 		if session[:scholar_id] != nil
 			@scholar = Scholar.where(id: session[:scholar_id])
 		elsif @scholar == nil
@@ -56,6 +56,31 @@ class MainController < ApplicationController
 
 	def register
 		render :register and return
+	end
+
+	def register_post
+		if params[:commit] == "Sign Up"
+			scholar = Scholar.new
+			scholar.name = params["name"]
+			scholar.username = params[:username]
+			scholar.password = params[:password]
+			scholar.password_confirmation = params[:password_confirmation]
+			scholar.email = params["email"]
+			if params[:student] == nil
+				scholar.student = false
+			else
+				scholar.student = true
+			end
+			scholar.save!
+
+			if scholar.save == true
+				flash[:notice] = "Thank you for registering, please log in to start using ReWord"
+				redirect_to "/login"
+			else
+				flash[:error] = "Registration Failed"
+				render :register and return
+			end
+		end
 	end
 
 	def test

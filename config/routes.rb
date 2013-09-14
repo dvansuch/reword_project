@@ -8,6 +8,7 @@ ReWordProject::Application.routes.draw do
   post "/login"     => "main#login_post"
   get "/logout"     => "main#logout"
   get "/register"   => "main#register"
+  post "/register"  => "main#register_post"
   get "/test"       => "main#test"
   
   get "/add_word"   => "main#add_a_word"
