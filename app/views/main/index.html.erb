@@ -12,18 +12,22 @@
   <div class="row">
     <div class="span4">
       <p>Please enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
-      <p><a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
-      </p>
     </div>
     <div class="span4">
       <div class="reword">
-        <p><%== text_area_tag "input" %><br>
+        <p><%== text_area_tag "word", nil, rows: 5, cols: 30 %><br>
           <%== submit_tag "ReWord", :class => "btn btn-primary" %>
         </p>
       </div>
     </div>
     <div class="span4">
-      <p><%== text_area_tag "output", @input %><br>
+      <p>
+        <% @results.synonyms.each do |r| %>
+          <% r %>
+        <% end %>
+      </p>
+
+      <p><%== text_area_tag "output", "r", rows: 5, cols: 30 %><br>
         <%== submit_tag "Try Again", :class => "btn btn-info" %>
       </p>
     </div>

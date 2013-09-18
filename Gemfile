@@ -56,3 +56,5 @@ gem 'bootstrap-sass'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'dinosaurus', :require => 'dinosaurus' #wrapper for my theasaurus API

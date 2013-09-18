@@ -24,9 +24,12 @@ class MainController < ApplicationController
 
 	def index_post
 		if params[:commit] == "ReWord"
-			@input = params["input"]
-			
+			@input = params["word"]
+			@results = Dinosaurus.lookup(@input)
+
 			render :index and return
+
+
 		elsif params[:commit] == "Try Again"
 			render :index and return
 		end

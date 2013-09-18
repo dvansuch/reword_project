@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.alight {
+	color: #00ffff;
+}
 .flash-error {
 	background-color: #f2dede;
 	border: 1px #eed3d7 solid;
@@ -13,4 +16,14 @@
 	background-color: #ff00ff;
 	border: 1px #eed3d7 solid;
 	padding: 15px;
+}
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: white;
+  background-color: #1069b3;
 }
