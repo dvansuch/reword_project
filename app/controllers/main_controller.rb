@@ -19,6 +19,7 @@ class MainController < ApplicationController
 	end
 
 	def index
+		@results = Dinosaurus.lookup(@input)
 		render :index and return
 	end
 
