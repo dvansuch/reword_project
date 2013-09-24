@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<%= form_tag "/admin/:id" do %>
+  <% @scholar = Scholar.find(params[:id]) %>
+    <p>
+      First Name: <%= @scholar.first_name %><br>   
+      Last Name: <%= @scholar.last_name %><br>
+      Username: <%= @scholar.username %><br>
+      Email: <%= @scholar.email %><br>
+      Student: <%= @scholar.student %><br>
+      Admin Status: <%= @scholar.is_admin %><br>
+      Created At: <%= @scholar.created_at %><br>
+      Updated At: <%= @scholar.updated_at %><br>
+    </p>
+
+  <%= link_to 'Edit', edit_admin_path(@admin) %> |
+  <%= link_to 'Back', admins_path %>
+
+<% end %>

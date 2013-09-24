@@ -1,0 +1,31 @@
+<%= form_for(@scholar, url: edit_admin_path(@scholar)) do |f| %>
+  <% if @scholar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@scholar.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+      <ul>
+      <% @scholar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% @scholar = Scholar.find(params[:id]) %>
+    <p>
+      First Name: <%= f.text_field :first_name, value => @scholar.first_name %><br>   
+      Last Name: <%= f.text_field :last_name, @scholar.last_name %><br>
+      Username: <%= f.text_field :username, @scholar.username %><br>
+      Email: <%= f.text_field :email, @scholar.email %><br>
+      Student: <%= f.text_field :student, @scholar.student %><br>
+      Admin Status: <%= f.text_field :is_admin, @scholar.is_admin %><br><br>
+      Created At: <%= @scholar.created_at %><br><br>
+      Updated At: <%= @scholar.updated_at %><br><br>
+    </p>
+
+  <%= link_to 'Edit', edit_admin_path(@admin) %> 
+  <%= link_to 'Back', admins_path %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

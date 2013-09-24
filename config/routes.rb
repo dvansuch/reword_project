@@ -1,7 +1,7 @@
 ReWordProject::Application.routes.draw do
+  resources :admins
+  
   get "/"           => "main#root"
-  get "/index"      => "main#index"
-  post "/index"     => "main#index_post"
   get "/about"      => "main#about"
 
   get "/login"      => "main#login"
@@ -12,6 +12,8 @@ ReWordProject::Application.routes.draw do
   get "/test"       => "main#test"
   
   get "/add_word"   => "main#add_a_word"
+  get "/index"      => "main#index"
+  post "/index"     => "main#index_post"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

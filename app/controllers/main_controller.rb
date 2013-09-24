@@ -1,4 +1,4 @@
-class MainController < ApplicationController
+ class MainController < ApplicationController
 
 	before_filter except: ["login", "login_post", "root", "logout", "register", "about", "register_post"] do 
 		if session[:scholar_id] != nil
@@ -11,16 +11,16 @@ class MainController < ApplicationController
 	end
 		
 	def root
-		render :main and return
+		render :main
 	end
 
 	def about
-		render :about and return
+		render :about
 	end
 
 	def index
 		@results = Dinosaurus.lookup(@input)
-		render :index and return
+		render :index
 	end
 
 	def index_post
@@ -28,16 +28,15 @@ class MainController < ApplicationController
 			@input = params["word"]
 			@results = Dinosaurus.lookup(@input)
 
-			render :index and return
-
-
+			render :index
 		elsif params[:commit] == "Try Again"
-			render :index and return
+			
+			render :index
 		end
 	end
 
 	def login
-		render :login and return
+		render :login
 	end
 
 	def login_post
@@ -50,16 +49,16 @@ class MainController < ApplicationController
 				redirect_to "/index"
 			else
 				flash[:error] = "Incorrect password"
-				render :login and return 
+				render :login 
 			end
 		else
 			flash[:error] = "Wrong username"
-			render :login and return
+			render :login
 		end
 	end
 
 	def register
-		render :register and return
+		render :register
 	end
 
 	def register_post
@@ -88,11 +87,11 @@ class MainController < ApplicationController
 	end
 
 	def test
-		render :test and return
+		render :test
 	end
 
 	def add_a_word
-		render :new_word and return
+		render :new_word
 	end
 
 	def logout

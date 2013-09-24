@@ -14,11 +14,15 @@
 ActiveRecord::Schema.define(version: 20130911202124) do
 
   create_table "scholars", force: true do |t|
-    t.string  "name"
-    t.string  "password_digest"
-    t.string  "username"
-    t.string  "email"
-    t.boolean "student"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
+    t.string   "username"
+    t.string   "email"
+    t.boolean  "student"
+    t.boolean  "is_admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

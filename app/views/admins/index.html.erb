@@ -1,0 +1,29 @@
+<h1>List of Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Joined:</th>
+      <th>Admin:</th>
+      <th>Edit:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scholars.each do |scholar| %>
+      <tr>         
+        <td><%= scholar.first_name %><%= scholar.last_name %></td>
+        <td><%= scholar.created_at %></td>
+        <td><%= scholar.is_admin %></td>
+        <td><%= link_to 'Show', admin_path(scholar) %>
+          <%= link_to 'Edit', edit_admin_path(scholar) %>
+          <%= link_to 'Destroy', admin_path(scholar), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin', new_admin_path %>
