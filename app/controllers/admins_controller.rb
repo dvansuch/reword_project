@@ -19,12 +19,13 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+    @scholar = Scholar.find(params[:id])
   end
 
   # POST /admins
   # POST /admins.json
   def create
-    @scholar = Scholar.new(admin_params)
+    @scholar = Scholar.new(scholar_params)
 
     respond_to do |format|
       if @scholar.save
@@ -41,8 +42,8 @@ class AdminsController < ApplicationController
   # PATCH/PUT /admins/1.json
   def update
     respond_to do |format|
-      if @scholar.update(admin_params)
-        format.html { redirect_to @scholar, notice: 'Admin was successfully updated.' }
+      if @scholar.update(scholar_params)
+        format.html { redirect_to edit_admin_path, notice: 'Admin was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +57,7 @@ class AdminsController < ApplicationController
   def destroy
     @scholar.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url }
+      format.html { redirect_to }
       format.json { head :no_content }
     end
   end
@@ -68,7 +69,7 @@ class AdminsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params[:admin]
+    def scholar_params
+      params[:scholar].permit(:first_name, :last_name, :username, :email, :student, :is_admin)
     end
 end
