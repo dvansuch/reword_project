@@ -58,3 +58,5 @@ gem 'bootstrap-sass'
 # gem 'debugger', group: [:development, :test]
 
 gem 'dinosaurus', :require => 'dinosaurus' #wrapper for my theasaurus API
+
+gem 'taps'

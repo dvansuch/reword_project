@@ -4,16 +4,17 @@ ReWordProject::Application.routes.draw do
   get "/"           => "main#root"
   get "/about"      => "main#about"
 
-  get "/login"      => "main#login"
-  post "/login"     => "main#login_post"
+  get "/login"      => "main#login"         ,as: "login"
+  post "/login"     => "main#login_post"    ,as: "login_post"
   get "/logout"     => "main#logout"
   get "/register"   => "main#register"
   post "/register"  => "main#register_post"
-  get "/test"       => "main#test"
   
-  get "/add_word"   => "main#add_a_word"
-  get "/index"      => "main#index"
-  post "/index"     => "main#index_post"
+  get "/add_word"         => "main#add_a_word"
+  get "/index"            => "main#index"
+  post "/index"           => "main#index_post"
+  get "/admin_controller" => "main#admin_controller"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

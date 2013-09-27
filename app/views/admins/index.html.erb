@@ -4,7 +4,6 @@
   <thead>
     <tr>
       <th>Name:</th>
-      <th>Joined:</th>
       <th>Admin:</th>
       <th>Edit:</th>
     </tr>
@@ -13,8 +12,7 @@
   <tbody>
     <% @scholars.each do |scholar| %>
       <tr>         
-        <td><%= scholar.first_name %><%= scholar.last_name %></td>
-        <td><%= scholar.created_at %></td>
+        <td><%= scholar.full_name %></td>
         <td><%= scholar.is_admin %></td>
         <td><%= link_to 'Show', admin_path(scholar) %>
           <%= link_to 'Edit', edit_admin_path(scholar) %>

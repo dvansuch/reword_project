@@ -9,25 +9,26 @@
     <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
   </div>
 </div><!-- ends header div -->
-  <div class="row">
-    <div class="span4">
-      <p>Please enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!
-      </p>
-    </div>
-    <div class="span4">
-      <div class="reword">
-        <p><%= text_area_tag "word", nil, rows: 3, cols: 30 %><br>
-          <%= submit_tag "ReWord", :class => "btn btn-primary" %>
-        </p>
+<div class="row">
+  <div class="span6">
+    <p>Please enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!
+    </p>
+  </div>
+  <div class="span6">
+    <div class="container">
+      <div class="span3">
+        <%= text_area_tag "word", nil, rows: 3, cols: 30 %><br>
+        <%= submit_tag "ReWord", :class => "btn btn-primary" %>
       </div>
-    </div>
-    <div class="span4">
-      <p>
+      <div class="span3">
         <%= text_area_tag "output", @results.synonyms.sample, rows:3, cols: 30 %>
-        <br>
-        <%= submit_tag "Try Again", :class => "btn btn-info" %>
+      </div>
+        
+        
+      <br>
       </p>
     </div>
-  </div><!-- ends body div -->
+  </div>
+</div><!-- ends body div -->
   
 <% end %>

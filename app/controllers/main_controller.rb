@@ -36,7 +36,7 @@
 	end
 
 	def login
-		render :login
+		render :scholar_login
 	end
 
 	def login_post
@@ -46,14 +46,19 @@
 		if @username = @scholar
 			if @scholar.authenticate(params[:password]) != false
 				session[:scholar_id] = @scholar.id
-				redirect_to "/index"
+				if 
+					@scholar.is_admin == false
+					redirect_to "/index"
+				else
+					redirect_to "/admin_controller"
+				end
 			else
 				flash[:error] = "Incorrect password"
-				render :login 
+				render :scholar_login 
 			end
 		else
 			flash[:error] = "Wrong username"
-			render :login
+			render :scholar_login
 		end
 	end
 
@@ -64,7 +69,8 @@
 	def register_post
 		if params[:commit] == "Sign Up"
 			scholar = Scholar.new
-			scholar.name = params["name"]
+			scholar.first_name = params["first_name"]
+			scholar.last_name = params["last_name"]
 			scholar.username = params[:username]
 			scholar.password = params[:password]
 			scholar.password_confirmation = params[:password_confirmation]
@@ -74,6 +80,13 @@
 			else
 				scholar.student = true
 			end
+
+			if params[:is_admin] == nil
+				scholar.is_admin = false
+			else
+				scholar.is_admin = true
+			end
+
 			scholar.save!
 
 			if scholar.save == true
@@ -86,12 +99,12 @@
 		end
 	end
 
-	def test
-		render :test
-	end
-
 	def add_a_word
 		render :new_word
+	end
+
+	def admin_controller
+		render :admin_control
 	end
 
 	def logout

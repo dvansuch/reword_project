@@ -10,6 +10,7 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.json
   def show
+    @scholar = Scholar.find(params[:id])
   end
 
   # GET /admins/new
@@ -55,9 +56,11 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
+    @scholar = Scholar.find(params[:id])
+
     @scholar.destroy
     respond_to do |format|
-      format.html { redirect_to }
+      format.html { redirect_to admins_path }
       format.json { head :no_content }
     end
   end

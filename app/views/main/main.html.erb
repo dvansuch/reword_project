@@ -1,28 +1,41 @@
-<%== form_tag "/reword" do %>
-
-  <div class="row">
-    <div class="text-center">
-      <div>
-        <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
-      </div>
-     <h1 >Welcome to ReWord</h1>
-     <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
+<div class="row">
+  <div class="text-center">
+    <div class="container">
+      <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
     </div>
-  </div><!-- ends header div -->
-  <div class="row">
-    <div class="span4">
-      <h2>What is ReWord?</h2>
+    <h1 >Welcome to ReWord</h1>
+    <h4>The innovative text manipulator! If you just can't figure out a synonym to use, let ReWord help you. Just enter the sentence you want to change and press go. </h4>
+  </div>
+</div><!-- ends header div -->
+<div class="row">
+  <div class="span12">
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="span4">
+    <div class="text-center">
+      The<br>
+      JQuery<br>
+      UI Globe<br>
+      Goes Here<br>
+      When I<br>
+      Find<br>
+      It<br>
+    </div>
+  </div>
+  <div class="span4">
+    <div class="well">
+      <div class="text-center">
+        <h2>What is ReWord?</h2>
+      </div>
       <p>Enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
-      <p><a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
+      <p>
+        <a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
       </p>
     </div>
-    <div class="span4">
-      <h2>About ReWord</h2>
-    </div>
-    <div class="span4">
-      <h2>Get Started Today</h2>
-      <p>Click <a href="/index">Here</a> to start rewording sentences!</p>
-    </div>
-  </div><!-- ends body div -->
-  
-<% end %>
+  </div>
+  <div class="span4">
+      <%= render "login" %>
+  </div>
+</div><!-- ends body div -->

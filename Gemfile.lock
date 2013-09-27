@@ -93,6 +93,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -101,6 +103,9 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    sequel (3.20.0)
+    sinatra (1.0)
+      rack (>= 1.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -110,6 +115,11 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    taps (0.3.24)
+      rack (>= 1.0.1)
+      rest-client (>= 1.4.0, < 1.7.0)
+      sequel (~> 3.20.0)
+      sinatra (~> 1.0.0)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -144,6 +154,7 @@ DEPENDENCIES
   rake_db_dump
   sass-rails (~> 4.0.0)
   sdoc
+  taps
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
