@@ -19,20 +19,56 @@
 	end
 
 	def index
-		@results = Dinosaurus.lookup(@input)
+		@results = Dinosaurus.lookup(@input)[:syn]
 		render :index
 	end
 
 	def index_post
-		if params[:commit] == "ReWord"
-			@input = params["word"]
-			@results = Dinosaurus.lookup(@input)
+		@input = params["sentence"]
 
-			render :index
-		elsif params[:commit] == "Try Again"
+		if @input != ""
+			@words = @input.split(" ")
 			
-			render :index
+			@words.each do |word|
+				if word.length >= 3
+					lookup_result = Dinosaurus.lookup(word)
+					if lookup_result != nil 
+						adj_results = lookup_result[:adjective]
+						if adj_results != nil 
+							synonyms_adj = adj_results[:syn]
+							if synonyms_adj != nil
+								new_word = synonyms_adj.sample
+								word.replace(new_word)
+							else
+								word == word
+							end
+						elsif adj_results == nil
+							adverb_results = lookup_result[:adverb]
+							if adverb_results != nil
+							synonyms_adverb = adverb_results[:syn]
+								if synonyms_adverb != nil
+									new_word = synonyms_adverb.sample
+									word.replace(new_word)
+								else
+									word == word	
+								end	
+							else
+								word == word
+							end					
+						else
+							word == word
+						end
+					else 
+						word == word
+					end
+
+					@results = @words.join(" ")
+				end
+			end
+		else 
+			flash[:error] = "Please enter a sentence you want ReWord"
 		end
+		render :index and return
 	end
 
 	def login

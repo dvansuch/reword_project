@@ -17,11 +17,11 @@
   <div class="span6">
     <div class="container">
       <div class="span3">
-        <%= text_area_tag "word", nil, rows: 3, cols: 30 %><br>
+        <%= text_area_tag "sentence", nil, rows: 3, cols: 30 %><br>
         <%= submit_tag "ReWord", :class => "btn btn-primary" %>
       </div>
       <div class="span3">
-        <%= text_area_tag "output", @results.synonyms.sample, rows:3, cols: 30 %>
+        <%= text_area_tag "output", @results, rows:3, cols: 30 %>
       </div>
         
         
