@@ -83,7 +83,7 @@
 			if @scholar.authenticate(params[:password]) != false
 				session[:scholar_id] = @scholar.id
 				if 
-					@scholar.is_admin == false
+					@scholar.is_admin == "f"
 					redirect_to "/index"
 				else
 					redirect_to "/admin_controller"

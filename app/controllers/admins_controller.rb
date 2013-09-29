@@ -1,6 +1,16 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
+  before_filter do 
+    if session[:scholar_id] != nil
+      @scholar = Scholar.where(id: session[:scholar_id])
+    elsif @scholar == nil
+      flash[:error] = "Admistrators must log in to see that page."
+      #session[:original_route] = request.path_info
+      redirect_to "/login" and return
+    end
+  end
+
   # GET /admins
   # GET /admins.json
   def index
