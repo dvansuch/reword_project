@@ -130,15 +130,6 @@
 	end
 
 	def new_word_post
-			Pony.mail(
-	  	to:      "danielles.travels@gmail.com",
-	  	subject: "ReWord New Word Request",
-	  	body:    "You have a new word request:
-	  						New word: #{params[:new_word]}
-	  						Part of Speech: #{params[:part_of_speech]}
-	  						Synonyms: #{params[:synonym1]}, #{params[:synonym2]}, #{params[:synonym3]}"
-			)
-
 		flash[:notice] = "Your New Word Submission has been submitted"
 		redirect_to "/new_word"
 	end
