@@ -1,0 +1,41 @@
+<%== form_tag "/reword" do %>
+
+<div class="row">
+  <div class="text-center">
+    <div>
+      <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
+    </div>
+    <h1 >Welcome to ReWord</h1>
+    <h4>The innovative sentence manipulator! If you just can't figure out a synonym to use, let ReWord help you. </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <hr>
+  </div>
+</div><!-- ends header div -->
+<div class="row">
+  <div class="span6">
+    <p>ReWord will replace the adjectives and adverbs in your sentences to keep the same meaning but give you a different sound to your sentence. Simply type the sentence you want to change in the first box and hit ReWord - your results will appear in the second box. 
+    </p>
+  </div>
+  <div class="span6">
+    <div class="container">
+      <div class="span3">
+        <%= text_area_tag "sentence", nil, rows: 3, cols: 30 %><br>
+        <%= submit_tag "ReWord", :class => "btn btn-primary" %>
+        <p>
+        </p>
+      </div>
+      <div class="span3">
+        <%= text_area_tag "output", @results, rows:3, cols: 30 %>
+      </div>
+        
+        
+      <br>
+      </p>
+    </div>
+  </div>
+</div><!-- ends body div -->
+  
+<% end %>

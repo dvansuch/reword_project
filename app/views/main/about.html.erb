@@ -1,39 +1,43 @@
-<%== form_tag "/reword" do %>
-
-  <div class="row">
-    <div class="text-center">
-      <div>
-        <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
-      </div>
-     <h1 >About  ReWord</h1>
+<div class="row">
+  <div class="text-center">
+    <div>
+      <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
     </div>
-  </div><!-- ends header div -->
-  <div class="row">
-    <div class="span12">
-      <hr>
-    </div>
+   <h1 >About  ReWord</h1>
   </div>
-  <div class="row">
-    <div class="span6">
-      <div class="text-center">
-        <h2>What is ReWord?</h2>
-      </div>
-      <p>Enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
-      <p>
+</div><!-- ends header div -->
+<div class="row">
+  <div class="span12">
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <div class="text-center">
+      <h2>What is ReWord?</h2>
+    </div>
+    <p>ReWord is an innovative sentence manipulator that swaps out adjectives and adverbs for synonymous replacements.  The idea is to give your sentences some pizazz instead of using common words like "happy", "sad", and "funny". </p>
+    <p>
+    <p>ReWord is the brain-child of a Ruby on Rails beginner attending the DaVinci Coders Beginning Ruby on Rails class.  Everything about this site was designed, created and implemented by Danielle Van Suchtelen with the help of several Ruby Gems, The Big Huge Thesaurus API and the wonderful people at DaVinci Coders. 
+    </p>
+      <h5>
         <a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
+      </h5>
+    </p>
+  </div>
+  <div class="span6">
+    <div class="well">
+      <div class="text-center">
+        <h2>In Short, ReWord:</h2>
+      </div>
+      <p>
+        <uL>
+          <li>Replaces adverbs and adjectives in sentences
+          <li>Sometimes has some hilarious results
+          <li>Helps you get past common words like "happy" and "sad"
+          <li>Is really useful for impressing teachers with unique words
+        </uL>
       </p>
     </div>
-    <div class="span6">
-      <div class="well">
-        <div class="text-center">
-          <h2>What is ReWord?</h2>
-        </div>
-        <p>Enter the sentence you want to change to the right.  Then press ReWord and the ReWorded text will show up in the far right box. Have fun!</p>
-        <p>
-          <a href="/login">Login</a> or <a href="/register">Register</a> to add words to the dictionary.
-        </p>
-      </div>
-    </div>
-  </div><!-- ends body div -->
-  
-<% end %>
+  </div>
+</div><!-- ends body div -->

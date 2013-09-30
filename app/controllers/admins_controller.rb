@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 
   before_filter do 
     if session[:scholar_id] != nil
-      @scholar = Scholar.where(id: session[:scholar_id])
+      @scholar = Scholar.where(id: session[:scholar_id]).first
     elsif @scholar == nil
       flash[:error] = "Admistrators must log in to see that page."
       #session[:original_route] = request.path_info
@@ -36,22 +36,15 @@ class AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
-    @scholar = Scholar.new(scholar_params)
-
-    respond_to do |format|
-      if @scholar.save
-        format.html { redirect_to @scholar, notice: 'Admin was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @scholar }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @scholar.errors, status: :unprocessable_entity }
-      end
-    end
+    new_word = Dinosaurus.new
+    
   end
 
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json
   def update
+    @scholar = Scholar.find(params[:id])
+
     respond_to do |format|
       if @scholar.update(scholar_params)
         format.html { redirect_to edit_admin_path, notice: 'Admin was successfully updated.' }

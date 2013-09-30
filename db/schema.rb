@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130925181703) do
+ActiveRecord::Schema.define(version: 20130930212858) do
 
   create_table "scholars", force: true do |t|
-    t.string  "name"
     t.string  "password_digest"
     t.string  "username"
     t.string  "email"
     t.boolean "student"
-    t.string  "is_admin"
     t.string  "last_name"
     t.string  "first_name"
+    t.boolean "is_admin"
   end
 
 end

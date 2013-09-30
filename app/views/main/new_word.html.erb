@@ -1,31 +1,38 @@
-	<div class="row">
-	  <div class="span12 text-center">
-	   <h4>You can add words to the dictionary in ReWord if the word you want to change isn't changing in the sentence. Simply type in the word you want to add and any synonyms you can think of.
-	   </h4>
-	  </div>
+<div class="row">
+  <div class="span12 text-center">
+   <h4>You can add words to the ReWord thesaurus if the word you want to change isn't changing when using ReWord. Simply type in the word you want to add and provide a few synonyms.
+   </h4>
+  </div>
+</div>
+<div class="row">
+	<div class="span4">
+		<div>
+      <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
+    </div>
 	</div>
-	<div class="row">
-		<div class="span4">
-			<div>
-        <%= image_tag("ReWord_logo_small.jpg", alt: "ReWord")%>
-      </div>
-		</div>
-		<div class="span4">
-			<h1> Add A Word to the Dictionary</h1>
+	<div class="span4">
+		<%= form_tag "/new_word"  do %>
+		<h1> Add A Word to the Dictionary</h1>
 
-			<p>
-				<b>Singular version of the word:</b><br>
-				<%== text_field_tag "new_word" %><br>
-				<b>Plural version of the word:</b><br>
-				<%== text_field_tag "plural_new_word" %><br>
-				<b>Synonyms of the words, separated by commas:</b><br>
-				<%== text_field_tag "synonym1" %><br>
-				<%== text_field_tag "synonym2" %><br>
-				<%== text_field_tag "synonym3" %><br>
-				<%== text_field_tag "synonym4" %><br>
-				<%== submit_tag "Add Word to Dictionary" %>
-			</p>
-		</div>
-		<div class="span4">
-		</div>
+		<p>
+			<%= label_tag :new_word, "New Word" %>
+			<%= text_field_tag :new_word %><br>
+			<%= label_tag :part_of_speech, "Part of speech:" %>
+			<%= select_tag :part_of_speech,
+				options_for_select([
+					["adjective", "adjective"],
+					["adverb", "adverb"]
+					]), prompt: "Choose part of speech" %>
+			<%= label_tag :synonyms, "Please enter a few synonyms of the word:" %>
+			<%= text_field_tag "synonym1" %><br>
+			<%= text_field_tag "synonym2" %><br>
+			<%= text_field_tag "synonym3" %><br>
+			<%= submit_tag "Add Word to Dictionary" %>
+		</p>
 	</div>
+	<% end %>
+	<div class="span4">
+		<hr>
+		After you fill out the form, your submission will be reviewed by an administrator before being added to the ReWord thesuarus.
+	</div>
+</div>

@@ -18,12 +18,12 @@
 		render :about
 	end
 
-	def index
+	def reword
 		@results = Dinosaurus.lookup(@input)[:syn]
-		render :index
+		render :reword
 	end
 
-	def index_post
+	def reword_post
 		@input = params["sentence"]
 
 		if @input != ""
@@ -39,8 +39,6 @@
 							if synonyms_adj != nil
 								new_word = synonyms_adj.sample
 								word.replace(new_word)
-							else
-								word == word
 							end
 						elsif adj_results == nil
 							adverb_results = lookup_result[:adverb]
@@ -48,27 +46,18 @@
 							synonyms_adverb = adverb_results[:syn]
 								if synonyms_adverb != nil
 									new_word = synonyms_adverb.sample
-									word.replace(new_word)
-								else
-									word == word	
+									word.replace(new_word)	
 								end	
-							else
-								word == word
 							end					
-						else
-							word == word
 						end
-					else 
-						word == word
 					end
-
 					@results = @words.join(" ")
 				end
 			end
 		else 
 			flash[:error] = "Please enter a sentence you want ReWord"
 		end
-		render :index and return
+		render :reword and return
 	end
 
 	def login
@@ -103,11 +92,12 @@
 	end
 
 	def register_post
+		
 		if params[:commit] == "Sign Up"
 			scholar = Scholar.new
 			scholar.first_name = params["first_name"]
 			scholar.last_name = params["last_name"]
-			scholar.username = params[:username]
+			scholar.username = params[:username].downcase
 			scholar.password = params[:password]
 			scholar.password_confirmation = params[:password_confirmation]
 			scholar.email = params["email"]
@@ -135,8 +125,22 @@
 		end
 	end
 
-	def add_a_word
-		render :new_word
+	def new_word
+		render :new_word and return
+	end
+
+	def new_word_post
+			Pony.mail(
+	  	to:      "danielles.travels@gmail.com",
+	  	subject: "ReWord New Word Request",
+	  	body:    "You have a new word request:
+	  						New word: #{params[:new_word]}
+	  						Part of Speech: #{params[:part_of_speech]}
+	  						Synonyms: #{params[:synonym1]}, #{params[:synonym2]}, #{params[:synonym3]}"
+			)
+
+		flash[:notice] = "Your New Word Submission has been submitted"
+		redirect_to "/new_word"
 	end
 
 	def admin_controller

@@ -59,4 +59,6 @@ gem 'bootstrap-sass'
 
 gem 'dinosaurus', :require => 'dinosaurus' #wrapper for my theasaurus API
 
-gem 'taps'
+gem 'taps' #this pushes and pull db's on heroku
+
+gem 'pony' #email functionality
