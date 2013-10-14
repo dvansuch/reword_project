@@ -9,7 +9,7 @@ class MainController < ApplicationController
 			redirect_to "/login" and return
 		end
 	end
-
+		
 	def root
 		render :main
 	end
@@ -28,7 +28,7 @@ class MainController < ApplicationController
 
 		if @input != ""
 			@words = @input.split(" ")
-
+			
 			@words.each do |word|
 				if word.length >= 3
 					lookup_result = Dinosaurus.lookup(word)
@@ -43,7 +43,7 @@ class MainController < ApplicationController
 						elsif adj_results == nil
 							adverb_results = lookup_result[:adverb]
 							if adverb_results != nil
-								synonyms_adverb = adverb_results[:syn]
+							synonyms_adverb = adverb_results[:syn]
 								if synonyms_adverb != nil
 									new_word = synonyms_adverb.sample
 									word.replace(new_word)	
@@ -71,7 +71,8 @@ class MainController < ApplicationController
 		if @username = @scholar
 			if @scholar.authenticate(params[:password]) != false
 				session[:scholar_id] = @scholar.id
-				if @scholar.is_admin == false
+				if 
+					@scholar.is_admin == false
 					redirect_to "/index"
 				else
 					redirect_to "/admin_controller"
@@ -91,7 +92,7 @@ class MainController < ApplicationController
 	end
 
 	def register_post
-
+		
 		if params[:commit] == "Sign Up"
 			scholar = Scholar.new
 			scholar.first_name = params["first_name"]
