@@ -12,8 +12,8 @@ ReWordProject::Application.routes.draw do
   
   get "/new_word"         => "main#new_word"
   post "/new_word"        => "main#new_word_post"
-  get "/reword"           => "main#reword"
-  post "/reword"          => "main#reword_post"
+  get "/reword"            => "main#reword"
+  post "/reword"           => "main#reword_post"
   get "/admin_controller" => "main#admin_controller"
 
   # The priority is based upon order of creation: first created -> highest priority.
