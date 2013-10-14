@@ -143,5 +143,3 @@
 		redirect_to "/login"
 	end
 end
-
-#fixed tab width to two
