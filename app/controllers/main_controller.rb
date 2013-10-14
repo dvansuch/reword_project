@@ -142,4 +142,8 @@ class MainController < ApplicationController
 		session.clear
 		redirect_to "/login"
 	end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 83919fdf2dffba1361827e7defd62302dd5c0e73
