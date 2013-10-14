@@ -1,4 +1,4 @@
- class MainController < ApplicationController
+class MainController < ApplicationController
 
 	before_filter except: ["login", "login_post", "root", "logout", "register", "about", "register_post"] do 
 		if session[:scholar_id] != nil
@@ -143,5 +143,3 @@
 		redirect_to "/login"
 	end
 end
-
-#fixed tab width to two
