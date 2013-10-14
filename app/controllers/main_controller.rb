@@ -46,9 +46,9 @@ class MainController < ApplicationController
 							synonyms_adverb = adverb_results[:syn]
 								if synonyms_adverb != nil
 									new_word = synonyms_adverb.sample
-									word.replace(new_word)	
-								end	
-							end					
+									word.replace(new_word)  
+								end 
+							end         
 						end
 					end
 					@results = @words.join(" ")
