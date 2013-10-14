@@ -73,7 +73,7 @@ class MainController < ApplicationController
         session[:scholar_id] = @scholar.id
         if 
           @scholar.is_admin == false
-          redirect_to "/index"
+          redirect_to "/reword"
         else
           redirect_to "/admin_controller"
         end
